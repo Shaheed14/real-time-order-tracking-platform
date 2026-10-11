@@ -4,3 +4,17 @@ server:
 spring:
   application:
     name: order-service
+  datasource:
+    url: ${ORDER_SERVICE_DB_URL:jdbc:postgresql://localhost:5432/order_service}
+    username: ${ORDER_SERVICE_DB_USERNAME:postgres}
+    password: ${ORDER_SERVICE_DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
